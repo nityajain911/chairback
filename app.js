@@ -67,7 +67,7 @@ $('chk').addEventListener('submit', async (ev) => {
   } catch (e) {
     state('empty'); showError('Could not reach ChairBack. Check your connection and try again.');
   } finally {
-    $('go').disabled = false; $('go').textContent = 'Read this message';
+    $('go').disabled = false; $('go').textContent = 'Help me reply';
   }
 });
 

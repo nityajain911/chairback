@@ -40,16 +40,20 @@
       </div>
 
       <div class="phone" aria-label="Example of ChairBack reading a customer message">
-        <div class="bubble in">Kal 4 baje keratin ho jayega? Thoda discount milega?</div>
+        <div class="bubble in">Keratin kitne ka hai?</div>
+        <div class="bubble out" style="background:#e9e3d6">Shoulder length Rs 3500, waist length Rs 5000.</div>
+        <div class="bubble in">Shoulder tak hain. Kal 4 baje ho jayega? Thoda discount milega?</div>
         <div class="readout">
           <p class="readout-title">ChairBack's read</p>
           <ul>
-            <li><span class="tag ok">Wants</span> Keratin, tomorrow at 4</li>
-            <li><span class="tag ask">Still need</span> Hair length, and whether 4 is free</li>
-            <li><span class="tag warn">Your call</span> Discount asked. You haven't set one.</li>
+            <li><span class="tag ask">Stage</span> Needs information</li>
+            <li><span class="tag ok">Wants</span> Shoulder-length keratin, tomorrow at 4</li>
+            <li><span class="tag ask">Blocking</span> Slot availability not confirmed</li>
+            <li><span class="tag warn">Your call</span> Discount asked. Your rule says no discounts.</li>
+            <li><span class="tag ok">Next</span> Check the 4 pm slot, then reply</li>
           </ul>
         </div>
-        <div class="bubble out">Ji, keratin ke liye hair length bata dijiye, price confirm kar dete hain. 4 baje ka slot check karke batate hain.<span class="draft-label">Draft · you send</span></div>
+        <div class="bubble out">Ji, shoulder length keratin Rs 3500 ka hai. Kal 4 baje ka slot check karke batate hain. Discount abhi nahi de paayenge.<span class="draft-label">Draft · you send</span></div>
       </div>
     </div>
   </section>
@@ -88,7 +92,7 @@
 
   <section id="try" class="try">
     <div class="wrap">
-      <h2>Try it on one message</h2>
+      <h2>Try it on a WhatsApp chat</h2>
       <p class="sub">Use the sample salon below or change anything. ChairBack only knows what's in the rate card.</p>
 
       <div class="demo">
@@ -119,10 +123,14 @@ Open 10am to 8pm, closed Tuesday</textarea>
             </div>
           </div>
 
-          <label for="msg">Customer's message</label>
-          <textarea id="msg" rows="3" maxlength="400" placeholder="Paste the WhatsApp message here">didi kal 4 baje keratin ho jayega kya? thoda discount bhi milega?</textarea>
+          <label for="msg">Customer conversation</label>
+          <textarea id="msg" rows="6" maxlength="1500" placeholder="Paste the customer's latest message, or the last few messages">Customer: Keratin kitne ka hai?
+Salon: Shoulder length Rs 3500, waist length Rs 5000.
+Customer: Shoulder tak hain. Kal 4 baje ho jayega kya? Thoda discount milega?</textarea>
+          <p class="fine" style="margin:4px 0 0">Paste the last few messages if the price or plan was discussed earlier. Max 1,500 characters. Remove names and numbers if you like.</p>
           <div class="samples" aria-label="Sample messages">
-            <button type="button" data-s="bhaiya haircut aur beard trim kitna lagega? aaj shaam free ho?">Price + same day</button>
+            <button type="button" data-s="Customer: Keratin kitne ka hai?&#10;Salon: Shoulder length Rs 3500, waist length Rs 5000.&#10;Customer: Shoulder tak hain. Kal 4 baje ho jayega kya? Thoda discount milega?">Price asked earlier</button>
+            <button type="button" data-s="Customer: Men's haircut aur beard trim kitna lagega?&#10;Salon: Men's haircut Rs 250.&#10;Customer: Theek hai. Aaj shaam 6 baje free ho?">Same day</button>
             <button type="button" data-s="mam kal aapne jo hair spa kiya tha usse scalp mein jalan ho rahi hai, refund chahiye">Complaint + refund</button>
             <button type="button" data-s="Hi, do you do bridal makeup? what is the price for Dec 12?">Not on the card</button>
           </div>
@@ -137,20 +145,23 @@ Open 10am to 8pm, closed Tuesday</textarea>
         <div class="demo-out" aria-live="polite">
           <div id="empty" class="empty">
             <p class="readout-title">Result</p>
-            <p>Hit the button and ChairBack's read of the message shows up here: what they want, what's missing, what needs your call, and a draft reply.</p>
+            <p>Hit the button and ChairBack's read of the chat shows up here: where the booking stands, what is blocking it, what needs your call, the best next step, and a reply to send.</p>
           </div>
-          <div id="load" class="empty" hidden><p>Reading the message…</p></div>
+          <div id="load" class="empty" hidden><p>Reading the chat…</p></div>
           <div id="res" hidden>
-            <p class="readout-title">ChairBack's read <span id="lang" class="pill"></span> <span id="opp" class="pill"></span></p>
+            <p class="readout-title">Booking stage <span id="lang" class="pill"></span> <span id="opp" class="pill"></span></p>
+            <p id="stage" class="stage"></p>
+            <h4 class="rh">Customer wants</h4>
             <p id="wants" class="wants"></p>
             <div class="grid2">
-              <div><h4>Still need from them</h4><ul id="miss"></ul></div>
-              <div><h4>Needs your call</h4><ul id="own"></ul></div>
+              <div><h4>What is blocking the booking</h4><ul id="miss"></ul></div>
+              <div><h4>Needs your decision</h4><ul id="own"></ul></div>
             </div>
+            <p class="next"><strong>Best next step:</strong> <span id="next"></span></p>
+            <h4 class="rh">Reply to send</h4>
             <div class="bubble out" id="draftbox"><span id="draft"></span><span class="draft-label">Draft · you send</span></div>
             <p id="guard" class="guard" hidden></p>
-            <p class="next"><strong>Next:</strong> <span id="next"></span></p>
-          </div>
+                      </div>
         </div>
       </div>
 

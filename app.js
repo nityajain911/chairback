@@ -34,7 +34,7 @@ $('chk').addEventListener('submit', async (ev) => {
   showError('');
   const message = $('msg').value.trim();
   const rate_card = $('rate').value.trim();
-  if (message.length < 3) return showError('Paste a customer message first.');
+  if (message.length < 3) return showError('Paste a customer message or conversation first.');
   if (rate_card.length < 10) return showError('Add at least one service and price to the rate card.');
 
   $('go').disabled = true; $('go').textContent = 'Reading…';
@@ -54,11 +54,14 @@ $('chk').addEventListener('submit', async (ev) => {
       state('empty');
       return showError('ChairBack only reads customer messages sent to a salon. ' + (o.refusal_reason || ''));
     }
+    const STAGES = { ready_to_book: 'Ready to book', needs_information: 'Needs information', needs_owner_decision: 'Needs owner decision', sensitive_complaint: 'Sensitive / complaint', not_a_booking: 'Not a booking opportunity' };
+    $('stage').textContent = STAGES[o.booking_stage] || 'Needs your review';
+    $('stage').dataset.stage = o.booking_stage || '';
     $('lang').textContent = o.language || '';
     $('opp').textContent = o.booking_opportunity === 'none' ? 'No booking chance' : o.booking_opportunity + ' booking chance';
     $('wants').textContent = o.customer_wants;
-    list($('miss'), o.missing_info, 'Nothing');
-    list($('own'), o.needs_owner_decision, 'Nothing, you can send the draft');
+    list($('miss'), o.missing_info, 'Nothing is blocking it');
+    list($('own'), o.needs_owner_decision, 'Nothing, you can send the reply');
     $('draft').textContent = o.reply_draft || 'No draft. Decide this one yourself first.';
     $('next').textContent = o.next_action;
     $('guard').hidden = !data.guard; $('guard').textContent = data.guard || '';

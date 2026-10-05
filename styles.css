@@ -142,3 +142,10 @@ textarea:focus,select:focus{outline:3px solid var(--green);outline-offset:1px}
 .stats small{color:#d5d8d2;font-size:.85rem}
 .fine.center{margin-top:12px}
 @media (max-width:900px){.demo{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.grid2,.row2{grid-template-columns:1fr}}
+
+.stage{font-family:Fraunces,serif;font-size:1.3rem;margin:2px 0 12px;color:var(--ink)}
+.stage[data-stage=ready_to_book]{color:var(--green)}
+.stage[data-stage=needs_owner_decision],.stage[data-stage=sensitive_complaint]{color:var(--amber)}
+.rh{margin:0;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2)}
+#res .grid2{grid-template-columns:1fr;gap:12px}
+.next + .rh{margin-top:14px}

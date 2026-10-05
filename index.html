@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChairBack · Turn WhatsApp enquiries into booked chairs</title>
+<meta name="description" content="ChairBack helps independent salon owners turn unresolved WhatsApp enquiries into bookings, without inventing prices, discounts or slots. You approve every reply.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo" aria-label="ChairBack home"><span class="logo-mark" aria-hidden="true"></span>ChairBack</a>
+    <nav aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#try">Try it</a>
+      <a href="#trust">What it won't do</a>
+      <a href="#try" class="btn btn-small">Try it</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">For independent salon owners</p>
+        <h1>The "kal 4 baje?" message is a booking. Don't let it get buried.</h1>
+        <p class="lede">Give ChairBack a customer's WhatsApp message. It tells you what they want, what you still need to ask, and drafts a reply using only the prices and rules you've saved. You check it and send it.</p>
+        <div class="hero-cta">
+          <a href="#try" class="btn">Try it on a message</a>
+          <a href="#how" class="link">See how it works</a>
+        </div>
+        <p class="fine">Free pilot. Paste a chat in, get a draft out. Nothing is sent without you.</p>
+      </div>
+
+      <div class="phone" aria-label="Example of ChairBack reading a customer message">
+        <div class="bubble in">Kal 4 baje keratin ho jayega? Thoda discount milega?</div>
+        <div class="readout">
+          <p class="readout-title">ChairBack's read</p>
+          <ul>
+            <li><span class="tag ok">Wants</span> Keratin, tomorrow at 4</li>
+            <li><span class="tag ask">Still need</span> Hair length, and whether 4 is free</li>
+            <li><span class="tag warn">Your call</span> Discount asked. You haven't set one.</li>
+          </ul>
+        </div>
+        <div class="bubble out">Ji, kal ho jayega. Hair length bata dijiye, price confirm kar dete hain. 4 baje ka slot check karke batate hain.<span class="draft-label">Draft · you send</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="problem">
+    <div class="wrap narrow">
+      <h2>You see it mid-client. By night, it's buried.</h2>
+      <p>Customers ask about price, timing and discounts while your hands are full. You think "baad mein reply karenge". Then two more clients walk in. The chat slides down, and the customer books somewhere else.</p>
+      <p>Or you reply in a rush and say yes to a discount you never planned to give.</p>
+      <p class="strong">Most lost bookings don't start with a bad haircut. They start with a slow or unsure reply.</p>
+    </div>
+  </section>
+
+  <section id="how" class="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li>
+          <span class="num">1</span>
+          <h3>Save your rate card once</h3>
+          <p>Services, prices, timings and your rules on discounts and refunds. Takes a few minutes.</p>
+        </li>
+        <li>
+          <span class="num">2</span>
+          <h3>Give it a customer message</h3>
+          <p>Hinglish, half sentences, three questions in one. Paste it in as it is.</p>
+        </li>
+        <li>
+          <span class="num">3</span>
+          <h3>Read, edit, send</h3>
+          <p>See what they want, what's missing and what needs your decision. Then send the draft or change it.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="try" class="try">
+    <div class="wrap">
+      <h2>Try it on one message</h2>
+      <p class="sub">Use the sample salon below or change anything. ChairBack only knows what's in the rate card.</p>
+
+      <div class="demo">
+        <form id="chk" class="demo-form" novalidate>
+          <label for="rate">Your rate card</label>
+          <textarea id="rate" rows="6" maxlength="600">Haircut (women): Rs 600
+Haircut (men): Rs 250
+Keratin: Rs 3500 for shoulder length, Rs 5000 for waist length
+Hair spa: Rs 1200
+Open 10am to 8pm, closed Tuesday</textarea>
+
+          <div class="row2">
+            <div>
+              <label for="disc">Your discount rule</label>
+              <select id="disc">
+                <option value="no_discounts">No discounts</option>
+                <option value="weekday_10">10% off Mon to Thu before 4pm</option>
+                <option value="owner_decides">I decide case by case</option>
+              </select>
+            </div>
+            <div>
+              <label for="diary">Is the time they asked for free?</label>
+              <select id="diary">
+                <option value="unknown">I haven't checked yet</option>
+                <option value="free">Yes, it's free</option>
+                <option value="full">No, it's booked</option>
+              </select>
+            </div>
+          </div>
+
+          <label for="msg">Customer's message</label>
+          <textarea id="msg" rows="3" maxlength="400" placeholder="Paste the WhatsApp message here">didi kal 4 baje keratin ho jayega kya? thoda discount bhi milega?</textarea>
+          <div class="samples" aria-label="Sample messages">
+            <button type="button" data-s="bhaiya haircut aur beard trim kitna lagega? aaj shaam free ho?">Price + same day</button>
+            <button type="button" data-s="mam kal aapne jo hair spa kiya tha usse scalp mein jalan ho rahi hai, refund chahiye">Complaint + refund</button>
+            <button type="button" data-s="Hi, do you do bridal makeup? what is the price for Dec 12?">Not on the card</button>
+          </div>
+
+          <div class="form-foot">
+            <button class="btn" id="go" type="submit">Read this message</button>
+            <span id="left" class="muted" aria-live="polite"></span>
+          </div>
+          <p id="err" class="err" role="alert" hidden></p>
+        </form>
+
+        <div class="demo-out" aria-live="polite">
+          <div id="empty" class="empty">
+            <p class="readout-title">Result</p>
+            <p>Hit the button and ChairBack's read of the message shows up here: what they want, what's missing, what needs your call, and a draft reply.</p>
+          </div>
+          <div id="load" class="empty" hidden><p>Reading the message…</p></div>
+          <div id="res" hidden>
+            <p class="readout-title">ChairBack's read <span id="lang" class="pill"></span> <span id="opp" class="pill"></span></p>
+            <p id="wants" class="wants"></p>
+            <div class="grid2">
+              <div><h4>Still need from them</h4><ul id="miss"></ul></div>
+              <div><h4>Needs your call</h4><ul id="own"></ul></div>
+            </div>
+            <div class="bubble out" id="draftbox"><span id="draft"></span><span class="draft-label">Draft · you send</span></div>
+            <p id="guard" class="guard" hidden></p>
+            <p class="next"><strong>Next:</strong> <span id="next"></span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats" aria-label="Live numbers from ChairBack's database">
+        <div><span id="s1">–</span><small>messages read so far</small></div>
+        <div><span id="s2">–</span><small>were real booking chances</small></div>
+        <div><span id="s3">–</span><small>asked for something the owner hadn't approved</small></div>
+      </div>
+      <p class="fine center">Numbers come live from our database and include every test run on this page. Each visitor gets 5 reads a day.</p>
+    </div>
+  </section>
+
+  <section id="trust" class="trust">
+    <div class="wrap">
+      <h2>What ChairBack will never do</h2>
+      <div class="cards">
+        <div class="card"><h3>Invent a price</h3><p>It only quotes what's on your rate card. If a price depends on hair length, it asks.</p></div>
+        <div class="card"><h3>Promise a discount</h3><p>Discount and refund requests are flagged for you. It never says yes on your behalf.</p></div>
+        <div class="card"><h3>Confirm a slot</h3><p>It can't see your diary, so it never says "booked". It tells you to check.</p></div>
+        <div class="card"><h3>Send anything</h3><p>Every reply is a draft. You decide what goes to your customer.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="diff">
+    <div class="wrap">
+      <h2>Why not quick replies or ChatGPT?</h2>
+      <div class="compare">
+        <div><h3>Quick replies</h3><p>Good for "timings kya hain". You still have to find the right template, and they can't read a message that asks three things at once.</p></div>
+        <div><h3>A general chatbot</h3><p>Writes nicely, but doesn't know your prices and will happily make one up.</p></div>
+        <div class="hl"><h3>ChairBack</h3><p>Reads the message the way your customer wrote it, checks it against your rules, and tells you where the booking is stuck.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pilot" class="pilot">
+    <div class="wrap narrow center">
+      <h2>We're starting with a small group of salons</h2>
+      <p>Try the demo above with one of your own chats. If it gets something wrong, that is exactly what we want to hear. No setup fee, no card.</p>
+      <a class="btn" href="#try">Try the demo first</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span>ChairBack · built as an early prototype in India</span>
+    <span>Every reply is a draft. You stay in charge.</span>
+  </div>
+</footer>
+<script src="app.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "chairback",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" }
+}
